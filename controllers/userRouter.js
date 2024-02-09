@@ -33,6 +33,44 @@ router.post("/add", async (req, res) => {
         }
     )
 
+    router.get("/view",async(req,res)=>{
+        let data=await userModel.find()
+        res.json(data)
+    })
+    
+
+    router.post("/signin",async(req,res)=>{
+        let.input=req.body
+        let.email=req.body.email
+        let data=await userModel.findOne({"email":email})
+        if (!data) {
+            return res.json({
+                status:"incorrect mail"
+            })
+            
+        }
+        console.log(data)
+        let dbpassword=data.password
+        let inputpassword=req.body.password
+        console.log(dbpassword)
+        console.log(inputpassword)
+        const match=await bcrypt.compare(inputpassword,dbpassword)
+        if (!match) {
+            return res.json(
+                {
+                    status:"invalid password"
+                }
+            )
+            
+        }
+        res.json({
+            
+            status: "success"
+        })
+        
+
+    })
+
 
     //let user=new userModel(data)
     //let result=await user.save()
