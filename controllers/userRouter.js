@@ -34,8 +34,8 @@ router.post("/add", async (req, res) => {
     )
 
     router.get("/view",async(req,res)=>{
-        let data=await userModel.find()
-        res.json(data)
+        let result=await userModel.find()
+        res.json(result)
     })
     
 

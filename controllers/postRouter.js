@@ -11,4 +11,9 @@ router.post("/add",async(req,res)=>{
         status:"success"
     })
 })
+
+router.get("/viewall",async(req,res)=>{
+    let result=await postModel.find().populate().exec()
+    res.json(result)
+})
 module.exports=router
