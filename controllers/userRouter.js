@@ -8,7 +8,7 @@ hashPasswordGenerator = async (pass) => {
     return bcrypt.hash(pass, salt)
 }
 
-router.post("/add", async (req, res) => {
+router.post("/add", async(req, res) => {
     //let name=req.body.name
     //let age=req.body.age
     //let mobile=req.body.mobile
@@ -40,8 +40,8 @@ router.post("/add", async (req, res) => {
     
 
     router.post("/signin",async(req,res)=>{
-        let.input=req.body
-        let.email=req.body.email
+        let input=req.body
+        let email=req.body.email
         let data=await userModel.findOne({"email":email})
         if (!data) {
             return res.json({
