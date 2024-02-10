@@ -65,7 +65,7 @@ router.post("/add", async(req, res) => {
         }
         res.json({
             
-            status: "success"
+            status: "success","userData":input
         })
         
 
