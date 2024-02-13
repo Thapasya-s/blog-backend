@@ -14,7 +14,7 @@ router.post("/add",async(req,res)=>{
 
 router.get("/viewall",async(req,res)=>{
     let result=await postModel.find()
-    .populate("userid","name age mobile address").exec()
+    .populate("userid","name age mobile address -_id").exec()
     res.json(result)
 })
 module.exports=router
